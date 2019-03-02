@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | zzkfn</title>
+  <title>java | zzkfn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="zzkfn">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="–Java 满天星下落– public class Yuan { public static void main(String[] args) {     // TODO Auto-generated method stub     JFrame Frame=new JFrame();     yuanPanel YPanel=new yuanPanel();      Frame.setSize">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java">
+<meta property="og:url" content="http://yoursite.com/2019/03/02/java/index.html">
 <meta property="og:site_name" content="zzkfn">
+<meta property="og:description" content="–Java 满天星下落– public class Yuan { public static void main(String[] args) {     // TODO Auto-generated method stub     JFrame Frame=new JFrame();     yuanPanel YPanel=new yuanPanel();      Frame.setSize">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-02T04:29:12.948Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zzkfn">
+<meta name="twitter:title" content="java">
+<meta name="twitter:description" content="–Java 满天星下落– public class Yuan { public static void main(String[] args) {     // TODO Auto-generated method stub     JFrame Frame=new JFrame();     yuanPanel YPanel=new yuanPanel();      Frame.setSize">
   
     <link rel="alternative" href="/atom.xml" title="zzkfn" type="application/atom+xml">
   
@@ -150,103 +154,209 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-java" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      java
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/02/java/" class="archive-article-date">
+
+        
+        <a href="/2019/03/02/java/" class="archive-article-date">
   	<time datetime="2019-03-02T04:22:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/02/java/">java</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>–Java 满天星下落–</p>
+<p>public class Yuan {</p>
+<pre><code>public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    JFrame Frame=new JFrame();
+    yuanPanel YPanel=new yuanPanel();
 
-        <div class="article-info info-on-right">
-          
-          
+    Frame.setSize(1024,768);
+    Frame.setVisible(true);
+    Frame.add(YPanel);
+    Frame.setResizable(false);
+    YPanel.setBackground(Color.black);
+    YPanel.aa();///调用随机位置方法
 
+    Thread t=new Thread(YPanel);
+    t.start();    
+}
+</code></pre><p>}</p>
+<p>class yuanPanel extends JPanel  implements Runnable{<br>    int x[]=new int[300];//创建数组<br>    int y[]=new int[300];</p>
+<pre><code>public void aa(){//给数组每一个位置定好随机数
+        for(int i=0;i&lt;300;i++){
+            x[i]=(int)(Math.random()*1024);
+            y[i]=(int)(Math.random()*768);
+        }
+}
+
+public void paint(Graphics g){
+    super.paint(g);
+    g.setColor(Color.white);
+
+    for(int i=0;i&lt;300;i++){//创建300个位置随机的星星
+    g.drawString(&quot;*&quot;,x[i] ,y[i] );
+    }    
+
+}
+
+@Override
+public void run() { 
+    // TODO Auto-generated method stub
+
+    while(true){
+        for(int i=0;i&lt;300;i++){//星星掉落 ，如果超出屏幕则y位置为0；
+            y[i]++;
+            if(y[i]&gt;768){
+                y[i]=0;
+            }
+        }
+        try {
+            Thread.sleep(30);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }    
+</code></pre><p>//            if (y ==220){<br>//                s=1;<br>//            }else if(y==0){<br>//                s=0;<br>//            }<br>//<br>//            if(s==1){<br>//                y–;<br>//            }<br>//            else{<br>//                y++;<br>//            }<br>        repaint();<br>        }<br>    }<br>}</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/02/java/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/26/android-studio/" class="archive-article-date">
-  	<time datetime="2019-02-26T06:53:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-26</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/02/26/android-studio/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">android studio</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/26/android-studio/">android studio</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/07/hello-world/" class="archive-article-date">
-  	<time datetime="2019-02-07T07:49:50.530Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/07/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -269,8 +379,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
