@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="zzkfn">
 <meta property="og:description" content="–Java 满天星下落– public class Yuan { public static void main(String[] args) {     // TODO Auto-generated method stub     JFrame Frame=new JFrame();     yuanPanel YPanel=new yuanPanel();      Frame.setSize">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-02T04:29:12.948Z">
+<meta property="og:updated_time" content="2019-03-02T04:32:13.324Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java">
 <meta name="twitter:description" content="–Java 满天星下落– public class Yuan { public static void main(String[] args) {     // TODO Auto-generated method stub     JFrame Frame=new JFrame();     yuanPanel YPanel=new yuanPanel();      Frame.setSize">
@@ -199,21 +199,17 @@
             y[i]=(int)(Math.random()*768);
         }
 }
-
 public void paint(Graphics g){
     super.paint(g);
     g.setColor(Color.white);
-
     for(int i=0;i&lt;300;i++){//创建300个位置随机的星星
     g.drawString(&quot;*&quot;,x[i] ,y[i] );
     }    
 
 }
-
 @Override
 public void run() { 
     // TODO Auto-generated method stub
-
     while(true){
         for(int i=0;i&lt;300;i++){//星星掉落 ，如果超出屏幕则y位置为0；
             y[i]++;
@@ -227,7 +223,10 @@ public void run() {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }    
-</code></pre><p>//            if (y ==220){<br>//                s=1;<br>//            }else if(y==0){<br>//                s=0;<br>//            }<br>//<br>//            if(s==1){<br>//                y–;<br>//            }<br>//            else{<br>//                y++;<br>//            }<br>        repaint();<br>        }<br>    }<br>}</p>
+    repaint();    
+    }
+}
+</code></pre><p>}</p>
 
       
 

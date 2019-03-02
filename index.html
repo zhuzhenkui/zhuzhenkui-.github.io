@@ -197,21 +197,17 @@
             y[i]=(int)(Math.random()*768);
         }
 }
-
 public void paint(Graphics g){
     super.paint(g);
     g.setColor(Color.white);
-
     for(int i=0;i&lt;300;i++){//创建300个位置随机的星星
     g.drawString(&quot;*&quot;,x[i] ,y[i] );
     }    
 
 }
-
 @Override
 public void run() { 
     // TODO Auto-generated method stub
-
     while(true){
         for(int i=0;i&lt;300;i++){//星星掉落 ，如果超出屏幕则y位置为0；
             y[i]++;
@@ -225,7 +221,10 @@ public void run() {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }    
-</code></pre><p>//            if (y ==220){<br>//                s=1;<br>//            }else if(y==0){<br>//                s=0;<br>//            }<br>//<br>//            if(s==1){<br>//                y–;<br>//            }<br>//            else{<br>//                y++;<br>//            }<br>        repaint();<br>        }<br>    }<br>}</p>
+    repaint();    
+    }
+}
+</code></pre><p>}</p>
 
       
 
