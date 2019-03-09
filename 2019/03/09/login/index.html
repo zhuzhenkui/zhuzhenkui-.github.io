@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>login | zzkfn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="public class Xuexi2 extends JFrame {    JLabel User=new JLabel(“用户名:”);    JLabel UserPass=new JLabel(“密    码:”);    JLabel TiShi=new JLabel(“请输入密码和帐号”);    JTextField UserText=new JTextField();    JP">
+  <meta name="description" content="public class Xuexi2 extends JFrame { JLabel User=new JLabel(&amp;quot;用户名:&amp;quot;); JLabel UserPass=new JLabel(&amp;quot;密    码:&amp;quot;); JLabel TiShi=new JLabel(&amp;quot;请输入密码和帐号&amp;quot;); JTextField UserText=new J">
 <meta property="og:type" content="article">
 <meta property="og:title" content="login">
 <meta property="og:url" content="http://yoursite.com/2019/03/09/login/index.html">
 <meta property="og:site_name" content="zzkfn">
-<meta property="og:description" content="public class Xuexi2 extends JFrame {    JLabel User=new JLabel(“用户名:”);    JLabel UserPass=new JLabel(“密    码:”);    JLabel TiShi=new JLabel(“请输入密码和帐号”);    JTextField UserText=new JTextField();    JP">
+<meta property="og:description" content="public class Xuexi2 extends JFrame { JLabel User=new JLabel(&amp;quot;用户名:&amp;quot;); JLabel UserPass=new JLabel(&amp;quot;密    码:&amp;quot;); JLabel TiShi=new JLabel(&amp;quot;请输入密码和帐号&amp;quot;); JTextField UserText=new J">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-09T05:47:19.409Z">
+<meta property="og:updated_time" content="2019-03-09T05:51:31.978Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="login">
-<meta name="twitter:description" content="public class Xuexi2 extends JFrame {    JLabel User=new JLabel(“用户名:”);    JLabel UserPass=new JLabel(“密    码:”);    JLabel TiShi=new JLabel(“请输入密码和帐号”);    JTextField UserText=new JTextField();    JP">
+<meta name="twitter:description" content="public class Xuexi2 extends JFrame { JLabel User=new JLabel(&amp;quot;用户名:&amp;quot;); JLabel UserPass=new JLabel(&amp;quot;密    码:&amp;quot;); JLabel TiShi=new JLabel(&amp;quot;请输入密码和帐号&amp;quot;); JTextField UserText=new J">
   
     <link rel="alternative" href="/atom.xml" title="zzkfn" type="application/atom+xml">
   
@@ -174,8 +174,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>public class Xuexi2 extends JFrame {<br>    JLabel User=new JLabel(“用户名:”);<br>    JLabel UserPass=new JLabel(“密    码:”);<br>    JLabel TiShi=new JLabel(“请输入密码和帐号”);<br>    JTextField UserText=new JTextField();<br>    JPasswordField UserPassText=new JPasswordField();<br>    JButton Denglv=new JButton(“登录”);<br>    JButton CloseB=new JButton(“关闭”);<br>    JButton MinB=new JButton(“最小化”);</p>
-<pre><code>boolean isDrag=false;
+        <p>public class Xuexi2 extends JFrame {</p>
+<pre><code>JLabel User=new JLabel(&quot;用户名:&quot;);
+JLabel UserPass=new JLabel(&quot;密    码:&quot;);
+JLabel TiShi=new JLabel(&quot;请输入密码和帐号&quot;);
+JTextField UserText=new JTextField();
+JPasswordField UserPassText=new JPasswordField();
+JButton Denglv=new JButton(&quot;登录&quot;);
+JButton CloseB=new JButton(&quot;关闭&quot;);
+JButton MinB=new JButton(&quot;最小化&quot;);
+boolean isDrag=false;
 int x,y;
 
 public Xuexi2(){
@@ -302,26 +310,34 @@ public BackgroundPanel getLoginPanel(ActionListener ActionListener){
     });
     BP.add(CloseB);
     return BP;
+}}
+BP.addMouseMotionListener(new MouseMotionListener() {
+
+        @Override
+        public void mouseMoved(MouseEvent arg0) {
+            // TODO Auto-generated method stub
+
+        }
+
+        @Override
+        public void mouseDragged(MouseEvent e) {
+            // TODO Auto-generated method stub
+            if(isDrag){
+                int left=getLocation().x;
+                int right=getLocation().y;
+                setLocation(left+e.getX()-x,right+e.getY()-y);
+            }}
+
+    });
+</code></pre><p>class BackgroundPanel extends JPanel{</p>
+<pre><code>private Image image;
+public void setImage(Image image){
+    this.image=image;
 }
-</code></pre><p>}<br>BP.addMouseMotionListener(new MouseMotionListener() {</p>
-<pre><code>    @Override
-    public void mouseMoved(MouseEvent arg0) {
-        // TODO Auto-generated method stub
+protected  void paintComponent(Graphics g){//重写方法
+    g.drawImage(image,0,0,this);
 
-    }
-
-    @Override
-    public void mouseDragged(MouseEvent e) {
-        // TODO Auto-generated method stub
-        if(isDrag){
-            int left=getLocation().x;
-            int right=getLocation().y;
-            setLocation(left+e.getX()-x,right+e.getY()-y);
-        }}
-
-});
-</code></pre><p>class BackgroundPanel extends JPanel{<br>    private Image image;<br>    public void setImage(Image image){<br>        this.image=image;<br>    }<br>    protected  void paintComponent(Graphics g){//重写方法<br>        g.drawImage(image,0,0,this);</p>
-<pre><code>}
+}
 </code></pre><p>}</p>
 
       
