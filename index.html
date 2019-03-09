@@ -155,6 +155,217 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-login" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/09/login/">login</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/09/login/" class="archive-article-date">
+  	<time datetime="2019-03-09T05:46:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>public class Xuexi2 extends JFrame {<br>    JLabel User=new JLabel(“用户名:”);<br>    JLabel UserPass=new JLabel(“密    码:”);<br>    JLabel TiShi=new JLabel(“请输入密码和帐号”);<br>    JTextField UserText=new JTextField();<br>    JPasswordField UserPassText=new JPasswordField();<br>    JButton Denglv=new JButton(“登录”);<br>    JButton CloseB=new JButton(“关闭”);<br>    JButton MinB=new JButton(“最小化”);</p>
+<pre><code>boolean isDrag=false;
+int x,y;
+
+public Xuexi2(){
+    int width=535;
+    int hegin=410;
+
+    this.setSize(width,hegin);
+    this.setResizable(false);//设置窗体大小不可变
+    this.setUndecorated(true);//设置没有标题栏
+
+    //固定到屏幕中心
+    Dimension screensize=Toolkit.getDefaultToolkit().getScreenSize();//获取当前屏幕大小
+    if(width&gt;screensize.width ){width=screensize.width;}
+    if(hegin&gt;screensize.height){hegin=screensize.height;}
+    this.setBounds((screensize.width-535)/2,(screensize.height-410)/2,535,410);
+
+
+    //设置背景面板
+
+    this.add(getLoginPanel(null));
+
+}
+//设置面板
+public BackgroundPanel getLoginPanel(ActionListener ActionListener){
+
+
+    BackgroundPanel BP=new BackgroundPanel();
+    BP.setLayout(null);
+    BP.setImage(getToolkit().getImage(getClass().getResource(&quot;iocn/login.png&quot;)));
+    BP.addMouseListener(new MouseListener() {
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            // TODO 自动生成的方法存根
+            isDrag=false;
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            // TODO 自动生成的方法存根
+            //记录当前窗体的想x，y
+            isDrag=true;
+            x=e.getX();
+            y=e.getY();
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            // TODO 自动生成的方法存根
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            // TODO 自动生成的方法存根
+
+        }
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            // TODO 自动生成的方法存根
+            if(isDrag){
+                int left=getLocation().x;
+                int right=getLocation().y;
+
+
+            }
+        }
+    });
+
+
+    User.setBounds(150, 220, 70, 50);BP.add(User);
+    UserText.setBounds(195, 233, 180, 25);BP.add(UserText);
+    UserPass.setBounds(150, 250, 70, 50);BP.add(UserPass);
+    UserPassText.setBounds(195, 263, 180, 25);BP.add(UserPassText);
+    TiShi.setBounds(270, 273, 120, 50);BP.add(TiShi);
+    //登录按钮
+    Denglv.setBounds(195, 310, 150, 35);BP.add(Denglv);
+    Denglv.addActionListener(new ActionListener() {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // TODO 自动生成的方法存根
+            String user=UserText.getText();
+            String userPass=String.valueOf(UserPassText.getPassword());
+            if(user.equals(&quot;admin&quot;) &amp;&amp; userPass.equals(&quot;admin&quot;)){
+                System.out.println(&quot;登录ok&quot;);
+            }else{
+                JOptionPane.showMessageDialog(null, &quot;输入密码或帐号不正确&quot;);
+            }
+
+        }
+    });
+
+    //最小按钮
+    ImageIcon MInIcon= new ImageIcon(getClass().getResource(&quot;iocn/min.png&quot;));
+    MinB.setBounds(490, 6,MInIcon.getIconWidth(), MInIcon.getIconHeight());
+    MinB.setBorder(null);//取消按钮边框
+    MinB.setContentAreaFilled(false);//取消按钮的填充区域
+    MinB.setIcon(MInIcon);
+    MinB.addActionListener(new ActionListener() {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // TODO 自动生成的方法存根
+            setExtendedState(JFrame.ICONIFIED);//窗体最小化
+        }
+    });
+    BP.add(MinB);
+
+    //关闭按钮
+    ImageIcon ClosIcon= new ImageIcon(getClass().getResource(&quot;iocn/close.png&quot;));
+    CloseB.setBounds(508, 6,ClosIcon.getIconWidth(), ClosIcon.getIconHeight());
+    CloseB.setBorder(null);
+    CloseB.setContentAreaFilled(false);
+    CloseB.setIcon(ClosIcon);
+    CloseB.addActionListener(new ActionListener() {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // TODO 自动生成的方法存根
+            System.exit(0);
+        }
+    });
+    BP.add(CloseB);
+    return BP;
+}
+</code></pre><p>}<br>BP.addMouseMotionListener(new MouseMotionListener() {</p>
+<pre><code>    @Override
+    public void mouseMoved(MouseEvent arg0) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        // TODO Auto-generated method stub
+        if(isDrag){
+            int left=getLocation().x;
+            int right=getLocation().y;
+            setLocation(left+e.getX()-x,right+e.getY()-y);
+        }}
+
+});
+</code></pre><p>class BackgroundPanel extends JPanel{<br>    private Image image;<br>    public void setImage(Image image){<br>        this.image=image;<br>    }<br>    protected  void paintComponent(Graphics g){//重写方法<br>        g.drawImage(image,0,0,this);</p>
+<pre><code>}
+</code></pre><p>}</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/09/login/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-java" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -251,140 +462,6 @@ public void run() {
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/03/02/java/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-android-studio" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/26/android-studio/">android studio</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/26/android-studio/" class="archive-article-date">
-  	<time datetime="2019-02-26T06:53:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>–android studio–</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/26/android-studio/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/07/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/07/hello-world/" class="archive-article-date">
-  	<time datetime="2019-02-07T07:49:50.530Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/07/hello-world/">展开全文 >></a>
         </p>
       
 
